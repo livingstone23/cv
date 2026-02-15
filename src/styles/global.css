@@ -6,22 +6,23 @@
 :root,
 html[data-theme="light"] {
   --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  --foreground: #1f2937;
+  --accent: #059669; /* Verde esmeralda para modo claro */
+  --muted: #f3f4f6;
+  --border: #e5e7eb;
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
+  /* Fondo Navy profundo como satnaing.dev */
+  --background: #0f172a; 
+  --foreground: #f8fafc;
+  --accent: #10b981;    /* Verde esmeralda vibrante */
+  --muted: #1e293b;     /* Fondo para tarjetas */
+  --border: rgba(255, 255, 255, 0.05); /* Bordes sutiles */
 }
 
 @theme inline {
-  --font-app: var(--font-google-sans-code);
+  --font-app: 'Inter', var(--font-google-sans-code);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
@@ -40,6 +41,8 @@ html[data-theme="dark"] {
   }
   body {
     @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
+    /* Suave gradiente de fondo para dar profundidad */
+    background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 40%);
   }
   a,
   button {
@@ -51,20 +54,25 @@ html[data-theme="dark"] {
   }
 }
 
+/* Cambiamos el ancho a 6xl para permitir el diseño de dos columnas de Sat Naing */
 @utility max-w-app {
-  @apply max-w-3xl;
+  @apply max-w-6xl;
 }
 
 @utility app-layout {
-  @apply mx-auto w-full max-w-app px-4;
+  @apply mx-auto w-full max-w-app px-6 sm:px-10;
+}
+
+/* Utilidad para las tarjetas de cristal (About y Experiencia) */
+@utility glass-card {
+  @apply bg-muted/40 backdrop-blur-md border border-white/5 rounded-[2.5rem] shadow-2xl;
 }
 
 .active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-8;
+  @apply underline decoration-emerald-500 decoration-2 underline-offset-8 font-bold;
 }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 1rem;
 }

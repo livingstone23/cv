@@ -1,0 +1,91 @@
+---
+import { SITE } from "@/config";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+const layoutProps = {
+  title: `Contacto | ${SITE.title}`,
+  author: SITE.author,
+  description: "Ponte en contacto conmigo para proyectos, mentorías o retos técnicos.",
+};
+---
+
+<Layout {...layoutProps}>
+  <Header activeNav="contact" />
+  <main id="main-content" class="mx-auto max-w-6xl px-6 pb-12">
+    <section id="contact" class="mb-28 mt-8">
+      <h1 class="text-3xl font-extrabold text-skin-base sm:text-4xl">Contacto</h1>
+      
+      <p class="italic text-skin-base opacity-70 border-l-4 border-accent pl-4 py-2 mt-8 leading-relaxed max-w-3xl">
+        "Estoy siempre abierto a discutir nuevas arquitecturas, retos de liderazgo o colaboraciones técnicas. Si tienes una idea innovadora, este es el lugar."
+      </p>
+
+      <div class="mt-12 bg-slate-900/40 backdrop-blur-md p-8 sm:p-10 rounded-[2.5rem] border border-white/5 shadow-2xl max-w-3xl">
+        <p class="text-lg mb-8 opacity-90">Puedes enviarme un mensaje directo a través del siguiente formulario:</p>
+        
+        <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true"
+          class="flex flex-col gap-6"
+        >
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-sm font-bold uppercase tracking-wider opacity-70">Nombre</label>
+            <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              required 
+              class="rounded-xl border border-white/10 bg-white/5 p-4 focus:border-accent/50 focus:bg-white/10 outline-none text-foreground transition-all placeholder:text-white/20" 
+              placeholder="Tu nombre completo"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="email" class="text-sm font-bold uppercase tracking-wider opacity-70">Correo Electrónico</label>
+            <input 
+              type="email" 
+              name="email" 
+              id="email" 
+              required 
+              class="rounded-xl border border-white/10 bg-white/5 p-4 focus:border-accent/50 focus:bg-white/10 outline-none text-foreground transition-all placeholder:text-white/20" 
+              placeholder="tu@correo.com"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-sm font-bold uppercase tracking-wider opacity-70">Mensaje / Propuesta</label>
+            <textarea 
+              name="message" 
+              id="message" 
+              rows="5" 
+              required 
+              class="rounded-xl border border-white/10 bg-white/5 p-4 focus:border-accent/50 focus:bg-white/10 outline-none text-foreground transition-all placeholder:text-white/20" 
+              placeholder="Cuéntame sobre tu proyecto..."></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            class="mt-4 bg-accent text-slate-950 py-4 px-10 rounded-2xl font-bold hover:scale-[1.02] hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-accent/20 w-full sm:w-max"
+          >
+            Enviar Mensaje
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  #main-content {
+    min-height: calc(100vh - 15rem);
+  }
+  
+  /* Usamos CSS estándar para evitar el error de Tailwind v4 en el bloque style */
+  input::placeholder, 
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+</style>

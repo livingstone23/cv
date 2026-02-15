@@ -1,37 +1,38 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: "Sobre mí"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+## Senior Software Engineer & Technical Lead
 
-![Astro Paper](public/astropaper-og.jpg)
+¡Hola! Soy **Livingstone Cano**, arquitecto de software con más de 15 años de trayectoria transformando necesidades de negocio en sistemas robustos, escalables y de alta disponibilidad. 
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+Mi enfoque se centra en liderar equipos técnicos y diseñar soluciones bajo principios de **Clean Architecture**, aprovechando el ecosistema de **.NET 9/10** y tecnologías **Cloud**.
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+### 🎯 Mi Propuesta de Valor
+Mi carrera no se basa solo en escribir código, sino en diseñar estrategias tecnológicas integrales. Me especializo en el sector financiero y de seguros, donde la precisión, la seguridad y el rendimiento no son opcionales. 
 
-## Features
+He tenido la oportunidad de **trabajar y coordinar implementaciones críticas** en **Honduras, Panamá, Nicaragua y España**, gestionando la adaptación de plataformas financieras a regulaciones locales y estándares internacionales de alta exigencia.
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+### 🛠 Stack Tecnológico Core
+- **Backend:** .NET 9/10, C#, Clean Architecture, DDD, CQRS.
+- **Cloud & DevOps:** Azure, AWS, Docker, Kubernetes, CI/CD.
+- **Bases de Datos:** SQL Server (Administración y Diseño), Entity Framework Core.
+- **Herramientas:** XAF, XPO DevExpress, REST APIs, WebServices.
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+### 💼 Trayectoria y Liderazgo
+Desde mis inicios en 2007, he evolucionado de desarrollador senior a implementador y líder técnico. Mi experiencia en empresas como **FDL**, **SIFIZSOFT** y actualmente en el entorno de **Provimad** me ha permitido:
 
-and so much more.
+- Diseñar arquitecturas de 4 capas y esquemas de persistencia complejos.
+- Coordinar cambios operativos y legales críticos para el éxito de plataformas institucionales.
+- Mentorizar equipos para adoptar mejores prácticas de ingeniería de software y reducir riesgos tecnológicos.
 
-## Show your support
+---
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+> *La buena arquitectura permite que las decisiones difíciles se posterguen lo más posible, manteniendo la agilidad del sistema.*
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
+---
 
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
+**¿Quieres conocer el detalle técnico de mi trayectoria?** [Revisa mi experiencia detallada](/experience) o [conecta conmigo en LinkedIn](https://www.linkedin.com/in/livingstone-cano-7aa79728).
 
-Kyay zuu! 🙏🏼
+**¿Tienes un reto técnico o una propuesta de colaboración?** [Hablemos en la sección de contacto](/contact).

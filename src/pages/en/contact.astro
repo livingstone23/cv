@@ -1,0 +1,91 @@
+---
+import { SITE } from "@/config";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+const layoutProps = {
+  title: `Contact | ${SITE.title}`,
+  author: SITE.author,
+  description: "Get in touch with me for projects, mentoring, or technical challenges.",
+};
+---
+
+<Layout {...layoutProps}>
+  <Header activeNav="contact" />
+  <main id="main-content" class="mx-auto max-w-6xl px-6 pb-12">
+    <section id="contact" class="mb-28 mt-8">
+      <h1 class="text-3xl font-extrabold text-skin-base sm:text-4xl">Contact</h1>
+      
+      <p class="italic text-skin-base opacity-70 border-l-4 border-accent pl-4 py-2 mt-8 leading-relaxed max-w-3xl">
+        "I am always open to discussing new architectures, leadership challenges, or technical collaborations. If you have an innovative idea, this is the place."
+      </p>
+
+      <div class="mt-12 bg-slate-900/40 backdrop-blur-md p-8 sm:p-10 rounded-[2.5rem] border border-white/5 shadow-2xl max-w-3xl">
+        <p class="text-lg mb-8 opacity-90">You can send me a direct message using the following form:</p>
+        
+        <form 
+          name="contact-en" 
+          method="POST" 
+          data-netlify="true"
+          class="flex flex-col gap-6"
+        >
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-sm font-bold uppercase tracking-wider opacity-70">Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              required 
+              class="rounded-xl border border-white/10 bg-white/5 p-4 focus:border-accent/50 focus:bg-white/10 outline-none text-foreground transition-all" 
+              placeholder="Your full name"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="email" class="text-sm font-bold uppercase tracking-wider opacity-70">Email Address</label>
+            <input 
+              type="email" 
+              name="email" 
+              id="email" 
+              required 
+              class="rounded-xl border border-white/10 bg-white/5 p-4 focus:border-accent/50 focus:bg-white/10 outline-none text-foreground transition-all" 
+              placeholder="your@email.com"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-sm font-bold uppercase tracking-wider opacity-70">Message / Proposal</label>
+            <textarea 
+              name="message" 
+              id="message" 
+              rows="5" 
+              required 
+              class="rounded-xl border border-white/10 bg-white/5 p-4 focus:border-accent/50 focus:bg-white/10 outline-none text-foreground transition-all" 
+              placeholder="Tell me about your project..."></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            class="mt-4 bg-accent text-slate-950 py-4 px-10 rounded-2xl font-bold hover:scale-[1.02] hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-accent/20 w-full sm:w-max"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  #main-content {
+    min-height: calc(100vh - 15rem);
+  }
+  
+  /* Standard CSS to prevent Tailwind v4 @apply errors in the style block */
+  input::placeholder, 
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+</style>

@@ -7,18 +7,51 @@ import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 
 type Props = MarkdownLayoutProps<{ title: string }>;
-
 const { frontmatter } = Astro.props;
+const isEn = Astro.url.pathname.includes("/en/");
 ---
 
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
   <Header />
   <Breadcrumb />
-  <main id="main-content" class="app-layout">
-    <section id="about" class="app-prose mb-28 max-w-app prose-img:border-0">
-      <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
-      <slot />
-    </section>
+  <main id="main-content" class="mx-auto max-w-6xl px-6 py-12 min-h-screen">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <aside class="lg:col-span-5 lg:sticky lg:top-24">
+        <span class="text-accent font-mono text-sm tracking-widest uppercase opacity-90">
+          {isEn ? "Hi, my name is" : "Hola, mi nombre es"}
+        </span>
+        <h1 class="text-5xl font-extrabold text-skin-base mt-4 leading-tight">
+          Livingstone <span class="text-accent">Cano</span>
+        </h1>
+        <p class="text-xl text-skin-base opacity-80 mt-4 leading-relaxed">
+          Senior Software Engineer & <br/><strong>Project Lead</strong>
+        </p>
+        
+        <div class="flex flex-col gap-4 mt-10">
+          <a href={isEn ? "/en/experience" : "/experience"} class="flex items-center justify-center bg-accent text-black py-4 rounded-2xl font-bold transition-transform hover:scale-105 shadow-xl shadow-accent/20">
+            {isEn ? "Explore my journey" : "Explora mi trayectoria"}
+          </a>
+          <a href={isEn ? "/en/posts" : "/posts"} class="flex items-center justify-center border border-accent/40 text-accent py-4 rounded-2xl font-bold hover:bg-accent/10 transition-colors">
+            {isEn ? "Technical Articles" : "Artículos técnicos"}
+          </a>
+        </div>
+      </aside>
+
+      <section class="lg:col-span-7">
+        <div class="bg-slate-900/40 backdrop-blur-md p-8 sm:p-10 rounded-[2.5rem] border border-white/5 shadow-2xl">
+          <article class="prose prose-invert max-w-none 
+            prose-h2:text-accent prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-6 prose-h2:border-b prose-h2:border-white/5 prose-h2:pb-2
+            prose-h3:text-skin-base prose-h3:text-xl prose-h3:font-bold prose-h3:mt-8 prose-h3:mb-4
+            prose-p:text-skin-base prose-p:opacity-80 prose-p:leading-relaxed prose-p:mb-6
+            prose-ul:space-y-4 prose-ul:list-none prose-ul:p-0
+            prose-li:bg-white/5 prose-li:p-4 prose-li:rounded-xl prose-li:border prose-li:border-white/5">
+            <h1 class="text-2xl tracking-wider sm:text-3xl mb-8">{frontmatter.title}</h1>
+            <slot />
+          </article>
+        </div>
+      </section>
+    </div>
   </main>
   <Footer />
 </Layout>

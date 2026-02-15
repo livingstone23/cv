@@ -11,16 +11,18 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
 
+// Filtramos los posts por idioma si tu colección lo permite, 
+// o simplemente cargamos los que correspondan al blog
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
-const isEn = Astro.url.pathname.includes("/en/");
+const isEn = true;
 ---
 
-<Layout>
+<Layout lang="en">
   <Header />
   <main id="main-content" data-layout="index" class="app-layout container mx-auto px-4 max-w-7xl">
     
@@ -28,31 +30,21 @@ const isEn = Astro.url.pathname.includes("/en/");
       
       <div class="lg:w-5/12 text-center lg:text-left">
         <h1 class="text-4xl font-bold sm:text-6xl leading-tight">
-          {isEn ? "Technical Leadership & Software Architecture" : "Liderazgo Técnico y Arquitectura de Software"}
+          Technical Leadership & Software Architecture
         </h1>
         
         <p class="mt-8 text-xl leading-relaxed opacity-90">
-          {isEn ? (
-            <>
-              Hello! I'm <strong>Livingstone Cano</strong>. Senior Software Engineer and Project Lead in Madrid. 
-              With over 15 years of experience, I specialize in building scalable systems using 
-              <strong> .NET 9/10</strong> and Clean Architecture.
-            </>
-          ) : (
-            <>
-              ¡Hola! Soy <strong>Livingstone Cano</strong>. Senior Software Engineer y Líder de Proyecto en Madrid. 
-              Con más de 15 años de trayectoria, me especializo en construir sistemas escalables utilizando 
-              <strong> .NET 9/10</strong> y Clean Architecture.
-            </>
-          )}
+          Hi! I'm <strong>Livingstone Cano</strong>. Senior Software Engineer and Project Lead in Madrid. 
+          With over 15 years of experience, I specialize in building scalable systems using 
+          <strong> .NET 9/10</strong> and Clean Architecture.
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
           <LinkButton
-            href={isEn ? "/en/experience" : "/experience"}
+            href="/en/experience"
             class="bg-accent text-slate-950 px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg shadow-accent/20"
           >
-            {isEn ? "View Journey" : "Mi Trayectoria"}
+            View Journey
           </LinkButton>
           <Socials />
         </div>
@@ -60,7 +52,7 @@ const isEn = Astro.url.pathname.includes("/en/");
 
       <div class="relative lg:w-7/12 flex justify-center lg:justify-end">
         <div class="absolute inset-0 bg-accent/10 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="relative group">
+        <div class="relative">
           <img 
             src="/me-avatar.png" 
             alt="Livingstone Cano" 
@@ -73,9 +65,7 @@ const isEn = Astro.url.pathname.includes("/en/");
     {
       featuredPosts.length > 0 && (
         <section id="featured" class="pt-16 pb-8 border-b border-border">
-          <h2 class="text-3xl font-bold tracking-tight mb-8">
-            {isEn ? "Featured Articles" : "Artículos Destacados"}
-          </h2>
+          <h2 class="text-3xl font-bold tracking-tight mb-8">Featured Articles</h2>
           <ul>
             {featuredPosts.map(post => (
               <Card variant="h3" {...post} />
@@ -88,9 +78,7 @@ const isEn = Astro.url.pathname.includes("/en/");
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-16 pb-8">
-          <h2 class="text-3xl font-bold tracking-tight mb-8">
-            {isEn ? "Recent Posts" : "Posts Recientes"}
-          </h2>
+          <h2 class="text-3xl font-bold tracking-tight mb-8">Recent Posts</h2>
           <ul>
             {recentPosts.map(
               (post, index) =>
@@ -103,10 +91,10 @@ const isEn = Astro.url.pathname.includes("/en/");
 
     <div class="my-12 text-center">
       <LinkButton 
-        href={isEn ? "/en/posts/" : "/posts/"}
+        href="/en/posts/"
         class="group inline-flex items-center gap-1 transition-all text-accent font-semibold text-lg"
       >
-        {isEn ? "View All Posts" : "Ver todos los artículos"}
+        View All Posts
         <IconArrowRight class="inline-block transition-transform group-hover:translate-x-1" />
       </LinkButton>
     </div>
@@ -129,7 +117,7 @@ const isEn = Astro.url.pathname.includes("/en/");
     const indexLayout = (document.querySelector("#main-content") as HTMLElement)
       ?.dataset?.layout;
     if (indexLayout) {
-      sessionStorage.setItem("backUrl", "/");
+      sessionStorage.setItem("backUrl", "/en/");
     }
   });
 </script>
